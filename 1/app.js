@@ -1,5 +1,5 @@
-//bind vue to the #app div in the html
-Vue.createApp({
+//vm represents Vue Model
+const vm = Vue.createApp({
   data() {
     return {
       firstName: "John",
@@ -7,3 +7,9 @@ Vue.createApp({
     };
   },
 }).mount("#app");
+//bind vue to the #app div in the html
+
+setTimeout(() => {
+  vm.firstName = "Bob";
+  //we dont need to specify vm.data... vue does this magicly
+}, 5000);
