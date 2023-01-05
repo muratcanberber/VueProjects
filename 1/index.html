@@ -6,8 +6,9 @@
   </head>
 
   <body>
-    <div id="app">
-      <p>Hey {{firstName}} {{lastName}}</p>
+    <div id="app" v-cloak>
+      <!-- v-cloak directive can be selected in css. this helps the elements can be hidden until they load or calculated.  -->
+      <p>{{ fullName() }}</p>
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
