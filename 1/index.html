@@ -9,6 +9,9 @@
     <div id="app" v-cloak>
       <!-- v-cloak directive can be selected in css. this helps the elements can be hidden until they load or calculated.  -->
       <p>{{ fullName() }}</p>
+      <!-- <p><a v-bind:href="url" target="_blank">Google</a></p> -->
+      <!-- Shorter Version of v-bind -->
+      <p><a :href="url" target="_blank">Google</a></p>
       <hr />
       <label>First Name</label>
       <input type="text" v-model="firstName" />
