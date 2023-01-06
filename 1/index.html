@@ -8,7 +8,8 @@
   <body>
     <div id="app" v-cloak>
       <!-- v-cloak directive can be selected in css. this helps the elements can be hidden until they load or calculated.  -->
-      <p>{{ fullName() }}</p>
+      <!-- removed () fro fullName after moving function to the computed property -->
+      <p>{{ fullName }}</p>
       <!-- <p><a v-bind:href="url" target="_blank">Google</a></p> -->
       <!-- Shorter Version of v-bind -->
       <p><a :href="url" target="_blank">Google</a></p>
@@ -17,13 +18,15 @@
       <p v-html="raw_url"></p>
       <div class="age_box">
         <button v-on:click="increase">+</button>
-        <p>{{age}}</p>
+        <p>{{typeof age}}</p>
         <button @click="age--">-</button>
       </div>
 
       <hr />
       <label>First Name</label>
-      <input type="text" v-model="firstName" />
+      <!-- .lazy modifier prevents updateting page in every key stoke -->
+      <!-- .trim removes more then one whitespaces-->
+      <input type="text" v-model.lazy.trim="firstName" />
       <label>Last Name</label>
 
       <label>Middle Name</label>
@@ -35,6 +38,10 @@
         :value="lastName"
         @input.prevent="updateLastName('last name event triggered!', $event)"
       />
+
+      <label>Age</label><br />
+      <!-- inputs returns strings. v.model.number converts to string to numeric value -->
+      <input type="number" v-model.number="age" />
     </div>
 
     <script src="https://unpkg.com/vue@next"></script>
