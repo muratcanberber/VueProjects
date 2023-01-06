@@ -3,6 +3,8 @@ let vm = Vue.createApp({
     return {
       isPurple: false,
       selectedColor: "",
+      size: 150,
+      degree: 30,
     };
   },
   methods: {},
@@ -11,6 +13,14 @@ let vm = Vue.createApp({
       return {
         purple: this.isPurple,
       };
+    },
+  },
+  watch: {
+    size: {
+      immediate: true,
+      handler(newSize, oldSize) {
+        this.degree++;
+      },
     },
   },
 }).mount("#app");
