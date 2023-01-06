@@ -30,6 +30,14 @@ const vm = Vue.createApp({
       }  ${this.lastName.toUpperCase()}`;
     },
   },
+  watch: {
+    age(newVal, oldVal) {
+      //async code can be used here
+      setTimeout(() => {
+        this.age = 20;
+      }, 3000);
+    },
+  },
 }).mount("#app");
 //bind vue to the #app div in the html
 
