@@ -9,7 +9,7 @@ export default {
 	name: "Greating",
 	data() {
 		return {
-			msg: "Hello World"
+			msg: "Hello World!"
 		};
 	}
 }
