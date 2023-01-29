@@ -1,6 +1,7 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
 
+let x = "1";
 import App from "./App.vue";
 import router from "./router";
 
