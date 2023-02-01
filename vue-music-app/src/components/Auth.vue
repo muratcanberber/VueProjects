@@ -90,7 +90,7 @@
             </button>
           </form>
           <!-- Registration Form -->
-          <vee-form v-show="tab === 'register'">
+          <vee-form v-show="tab === 'register'" :validation-schema="schema">
             <!-- Name -->
             <div class="mb-3">
               <label class="inline-block mb-2">Name</label>
@@ -99,24 +99,32 @@
                 type="text"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Name"
+                :rule="{
+                  required: true,
+                }"
               />
+              <ErrorMessage class="text-red-600" name="name" />
             </div>
             <!-- Email -->
             <div class="mb-3">
               <label class="inline-block mb-2">Email</label>
-              <input
+              <vee-field
+                name="email"
                 type="email"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
                 placeholder="Enter Email"
               />
+              <ErrorMessage class="text-red-600" name="email" />
             </div>
             <!-- Age -->
             <div class="mb-3">
               <label class="inline-block mb-2">Age</label>
-              <input
+              <vee-field
+                name="age"
                 type="number"
                 class="block w-full py-1.5 px-3 text-gray-800 border border-gray-300 transition duration-500 focus:outline-none focus:border-black rounded"
               />
+              <ErrorMessage class="text-red-600" name="age" />
             </div>
             <!-- Password -->
             <div class="mb-3">
@@ -177,6 +185,15 @@ export default {
   data() {
     return {
       tab: "login",
+      schema: {
+        name: "required|min:3|max:100|alpha_spaces",
+        email: "required|min:3|max:100|email",
+        age: "required|min_value:18|max_malue:100",
+        password: "",
+        comfirm_password: "",
+        country: "",
+        tos: "",
+      },
     };
   },
   computed: {
