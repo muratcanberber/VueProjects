@@ -188,7 +188,7 @@ export default {
       schema: {
         name: "required|min:3|max:100|alpha_spaces",
         email: "required|min:3|max:100|email",
-        age: "required|min_value:18|max_malue:100",
+        age: "required|min_value:18|max_malue:110",
         password: "",
         comfirm_password: "",
         country: "",
